@@ -82,6 +82,17 @@ class SmsMessage implements Comparable<SmsMessage> {
     return res;
   }
 
+  /// Convert SMS to map
+  Map get toJson => {
+        "address": _address,
+        "body": _body,
+        "_id": _id,
+        "thread_id": _threadId,
+        "read": _read,
+        "date": _date!.millisecondsSinceEpoch,
+        "dateSent": _dateSent!.millisecondsSinceEpoch
+      };
+
   /// Getters
   int? get id => this._id;
   int? get threadId => this._threadId;
