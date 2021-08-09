@@ -58,7 +58,11 @@ class SmsQueryHandler implements RequestPermissionsResultListener {
 	}
 
 	void handle(Permissions permissions) {
-		if (permissions.checkAndRequestPermission(permissionsList, Permissions.SEND_SMS_ID_REQ)) {
+		try {
+			if (permissions.checkAndRequestPermission(permissionsList, Permissions.SEND_SMS_ID_REQ)) {
+				querySms();
+			}
+		} catch (Exception e) {
 			querySms();
 		}
 	}
