@@ -83,14 +83,14 @@ class SmsMessage implements Comparable<SmsMessage> {
   }
 
   /// Convert SMS to map
-  Map get toJson => {
+  Map<String, dynamic> toJson() => {
         "address": _address,
         "body": _body,
         "_id": _id,
         "thread_id": _threadId,
         "read": _read,
-        "date": _date!.millisecondsSinceEpoch,
-        "dateSent": _dateSent!.millisecondsSinceEpoch
+        "date": _date!.toString(),
+        "dateSent": _dateSent!.toString()
       };
 
   /// Getters
